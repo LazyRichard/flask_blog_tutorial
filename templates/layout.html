@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="kr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Flask 블로그</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">Flask 블로그</a>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+      </nav>
+      <hr>
+    </header>
+
+    <main role="main">
+    <!-- Main content block -->
+    {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
