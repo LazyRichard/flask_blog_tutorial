@@ -3,15 +3,19 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Flask 블로그</title>
+    {% if title %}
+      <title>Flask 블로그 - {{ title }}</title>
+    {% else %}
+      <title>Flask 블로그</title>
+    {% endif %}
   </head>
 
   <body>
     <header>
       <nav>
-        <a href="/">Flask 블로그</a>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
+        <a href="{{ url_for('index') }}">Flask 블로그</a>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
       </nav>
       <hr>
     </header>

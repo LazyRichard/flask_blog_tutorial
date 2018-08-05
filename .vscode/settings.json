@@ -1,4 +1,11 @@
 {
+    "[html]": {
+        "editor.tabSize": 2
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+
     "python.linting.enabled": false,
     "python.pythonPath": "${workspaceFolder}\\venv\\Scripts\\python.exe"
 }
