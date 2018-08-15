@@ -2,6 +2,7 @@ from datetime import datetime
 
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
@@ -33,8 +34,20 @@ class User(db.Model):
 
     posts = db.relationship('Post', backref='author', lazy=True)
   
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+
+        self.set_password(password)
+
     def __repr__(self):
         return f"<User('{self.username}', '{self.email}')>"
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
 
 class Post(db.Model):
     __table_name__ = 'post'
